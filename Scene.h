@@ -18,6 +18,5 @@ public:
     void SceneChange(Scene newScene);
     void Reset(Player& player, Enemy& enemy1, Enemy& enemy2, Enemy& enemy3, Enemy& enemy4,Enemy& enemy5);
 };
-
 #endif 
 

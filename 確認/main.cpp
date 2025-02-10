@@ -134,7 +134,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//::::::::::::::::::::::::::::::::::::::::::::::::
 			//                  タイトルに戻る
 			//::::::::::::::::::::::::::::::::::::::::::::::::
-			if (keys[DIK_RETURN]) {
+			if (keys[DIK_SPACE]) {
 				sceneManager.SceneChange(SceneManager::TITLE);
 			}
 			break;

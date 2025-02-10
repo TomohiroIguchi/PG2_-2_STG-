@@ -41,8 +41,7 @@ void Enemy::Update3() {
 
 void Enemy::Draw() {
     if (isAlive) {
-        Novice::DrawEllipse(static_cast<int>(posX), static_cast<int>(posY), static_cast<int>(radius),
-            static_cast<int>(radius), 0.0f, color_, kFillModeSolid);
+        Novice::DrawEllipse(static_cast<int>(posX), static_cast<int>(posY), static_cast<int>(radius),static_cast<int>(radius), 0.0f, color_, kFillModeSolid);
     }
 }
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -57,6 +56,6 @@ bool Enemy::CollisionCheck(Bullet& bullet) {
     float distance = deltaX * deltaX + deltaY * deltaY;
     float radiusSum = radius + bullet.GetSize();
     return distance <= (radiusSum * radiusSum);
-    //:::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 }

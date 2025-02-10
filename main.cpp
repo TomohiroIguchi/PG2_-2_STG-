@@ -46,7 +46,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	//enemys[i](static_cast<float>(rand() % 800 + 100), static_cast<float>(rand() % 600 - 100), 20.0f, 14.0f, 14.0f, RED);
 
 	int titleGraph = Novice::LoadTexture("./Resources/title.png");
-	//int pressSpaceToStartGraph = Novice::LoadTexture("./Resources/PressSPACEToStart.png");
 	int pressSpaceToStartGraph2 = Novice::LoadTexture("./Resources/PressSPACEToStart2.png");
 	int gameOverGraph = Novice::LoadTexture("./Resources/gameOver.png");
 	int pressSpaceToTaitleGraph = Novice::LoadTexture("./Resources/pressSpaceToTaitle.png");
@@ -68,13 +67,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		switch (sceneManager.currentScene) {
 		case SceneManager::TITLE:
-			if (keys[DIK_RETURN]) {
+			if (keys[DIK_RETURN] && !preKeys[DIK_RETURN]) {
 				sceneManager.Reset(player, enemy1, enemy2, enemy3, enemy4, enemy5);
 				sceneManager.SceneChange(SceneManager::GAMEPLAY);
 			}
 			break;
 
 		case SceneManager::GAMEPLAY:
+
+			if (keys[DIK_R] && !preKeys[DIK_R]) {
+				sceneManager.Reset(player, enemy1, enemy2, enemy3, enemy4, enemy5);
+			}
+
 			player.Move(keys);
 			player.Update();
 			enemy1.Update();
@@ -140,9 +144,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//:::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+
+			
+
 		case SceneManager::WIN:
 
-			if (keys[DIK_RETURN]) {
+			if (keys[DIK_RETURN] && !preKeys[DIK_RETURN]) {
 				sceneManager.SceneChange(SceneManager::TITLE);
 			}
 			break;
@@ -152,7 +159,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//::::::::::::::::::::::::::::::::::::::::::::::::
 			//                  タイトルに戻る
 			//::::::::::::::::::::::::::::::::::::::::::::::::
-			if (keys[DIK_RETURN]) {
+			if (keys[DIK_RETURN] && !preKeys[DIK_RETURN]) {
 				sceneManager.SceneChange(SceneManager::TITLE);
 			}
 			break;
